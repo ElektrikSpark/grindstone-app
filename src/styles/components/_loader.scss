@@ -1,0 +1,24 @@
+.loader {
+    height: 60px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -30px;
+
+    //
+
+    content: "";
+    position: absolute;
+    border: 3px solid lightgray;
+    border-radius: 50%;
+    border-top-color: $blue;
+    border-bottom-color: $blue;
+    animation: spinner .7s ease infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg)
+    }
+}
