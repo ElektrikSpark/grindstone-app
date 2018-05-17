@@ -1,7 +1,7 @@
 import React from 'react'
 import TaskForm from './TaskForm'
 import { connect } from 'react-redux'
-import { startAddTask } from '../actions/Tasks';
+import { startAddTask } from '../actions/tasks';
 
 export class AddTaskPage extends React.Component {
     onSubmit = (task) => {
