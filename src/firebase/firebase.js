@@ -1,13 +1,13 @@
 import * as firebase from 'firebase'
 
 var config = {
-    apiKey: "AIzaSyBbbjN2J8lT0PUemngL31OFTDG_jlw0E-A",
-    authDomain: "expensify-course-b399f.firebaseapp.com",
-    databaseURL: "https://expensify-course-b399f.firebaseio.com",
-    projectId: "expensify-course-b399f",
-    storageBucket: "expensify-course-b399f.appspot.com",
-    messagingSenderId: "147457939770"
-}
+    apiKey: "AIzaSyA1X3lOvepyRzAxI3RUsfr-qvw6pHyghwA",
+    authDomain: "grindstone-app.firebaseapp.com",
+    databaseURL: "https://grindstone-app.firebaseio.com",
+    projectId: "grindstone-app",
+    storageBucket: "grindstone-app.appspot.com",
+    messagingSenderId: "621845519726"
+  };
 
 firebase.initializeApp(config)
 
