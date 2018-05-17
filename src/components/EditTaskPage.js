@@ -21,7 +21,7 @@ export class EditTaskPage extends React.Component {
                     </div>   
                 </div>
                 <div className="content-container">
-                    <taskForm 
+                    <TaskForm 
                         task={this.props.task}
                         onSubmit={this.onSubmit}
                     />

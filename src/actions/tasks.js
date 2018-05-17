@@ -58,7 +58,7 @@ export const startEditTask = (id, updates) => {
 
 //SET_TASKS
 export const setTasks = (tasks) => ({
-    type: 'SET_TASK',
+    type: 'SET_TASKS',
     tasks
 })
 

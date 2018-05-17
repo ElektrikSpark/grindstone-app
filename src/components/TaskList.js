@@ -17,7 +17,7 @@ const TaskList = (props) => (
                     <div className="list-item list-item--message"><span>No Tasks</span></div>
                 ) : (
                     props.tasks.map((task) => {
-                        return <taskListItem key={task.id} {...task} />
+                        return <TaskListItem key={task.id} {...task} />
                     })
                 )
             }
