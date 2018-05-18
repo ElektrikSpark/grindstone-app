@@ -13,7 +13,7 @@ export default class TaskForm extends React.Component {
             note: props.task ? props.task.note : '',
             amount: props.task ? (props.task.amount).toString() : '',
             createdAt: props.task ? moment(props.task.createdAt) : moment(),
-            deadline: props.task ? (props.task.deadline ? moment(props.task.deadline) : moment()) : moment(),
+            deadline: props.task ? (props.task.deadline ? (props.task.deadline === 9999999999999 ? moment() : moment(props.task.deadline)) : moment()) : moment(),
             calenderFocused: false,
             error: ''
         }
@@ -61,7 +61,7 @@ export default class TaskForm extends React.Component {
         return (
             <form className="form" onSubmit={this.onSubmit}>
                 {this.state.error && <p className="form__error" >{this.state.error}</p>}
-                <input className="text-input" type="text" placeholder="Description" autoFocus value={this.state.description} onChange={this.onDescriptionChange} />
+                <input className="text-input" type="text" placeholder="Description*" autoFocus value={this.state.description} onChange={this.onDescriptionChange} />
                 <input className="text-input" type="text" placeholder="Approx. Hours" value={this.state.amount} onChange={this.onAmountChange} />
                 <p>Deadline:</p>
                 <SingleDatePicker
@@ -77,6 +77,7 @@ export default class TaskForm extends React.Component {
                 <textarea className="text-area" placeholder="Add a note for your task (optional)" value={this.state.note} onChange={this.onNoteChange} ></textarea>
                 <div>
                     <button className="button">Save Task</button>
+                    <h5 className="form-footer">* = required field</h5>
                 </div>
             </form>
         )

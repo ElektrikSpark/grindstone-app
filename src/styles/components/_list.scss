@@ -38,8 +38,11 @@
 
 .list-item__deadline {
     color: $blue;
-    position: absolute;
-    margin: 0 29rem;
+    
+    @media (min-width: $desktop-breakpoint) {
+        position: absolute;
+        margin: 0 29rem;
+    }
 }
 
 .list-item--message {
@@ -54,8 +57,12 @@
 
 .list-item__title {
     margin: 0;
-    max-width: 10vw;
-    overflow-wrap: break-word;
+    word-break: break-all;
+
+    @media (min-width: $desktop-breakpoint) {
+        max-width: 10vw;
+        overflow-wrap: break-word;
+    }
 }
 
 .list-item__subtitle {
