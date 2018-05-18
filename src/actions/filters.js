@@ -17,6 +17,12 @@ export const sortByAmount = () => ({
     type: 'SORT_BY_AMOUNT'
 })
 
+//SORT_BY_DEADLINE
+
+export const sortByDeadline = () => ({
+    type: 'SORT_BY_DEADLINE'
+})
+
 //SET_START_DATE
 
 export const setStartDate = (startDate) => ({

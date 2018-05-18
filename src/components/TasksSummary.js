@@ -7,11 +7,12 @@ import selectTasksTotal from '../selectors/tasks-total'
 
 export const TasksSummary = ({ taskCount, tasksTotal }) => {
     const taskWord = taskCount === 1 ? 'task' : 'tasks'
-    const formattedTasksTotal = numeral(tasksTotal / 100).format('$0,0.00')
+    const hourWord = tasksTotal === 1 ? 'hour' : 'hours'
+    const formattedTasksTotal = tasksTotal
     return (
         <div className="page-header">
             <div className="content-container">
-                <h1 className="page-header__title">Viewing <span>{taskCount}</span> {taskWord} totalling <span>{formattedTasksTotal}</span></h1>
+                <h1 className="page-header__title">Viewing <span>{taskCount}</span> {taskWord} taking <span>{formattedTasksTotal}</span> {hourWord}</h1>
                 <div className="page-header__actions">
                     <Link className="button" to="/create">Add Task</Link>
                 </div>

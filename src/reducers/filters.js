@@ -30,6 +30,13 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
             }
             break;
 
+        case 'SORT_BY_DEADLINE':
+            return {
+                ...state,
+                sortBy: 'deadline'
+            }
+            break;
+
         case 'SET_START_DATE':
             return {
                 ...state,

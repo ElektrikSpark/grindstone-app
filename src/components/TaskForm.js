@@ -11,8 +11,9 @@ export default class TaskForm extends React.Component {
         this.state = {
             description: props.task ? props.task.description : '',
             note: props.task ? props.task.note : '',
-            amount: props.task ? (props.task.amount / 100).toString() : '',
+            amount: props.task ? (props.task.amount).toString() : '',
             createdAt: props.task ? moment(props.task.createdAt) : moment(),
+            deadline: props.task ? (props.task.deadline ? moment(props.task.deadline) : moment()) : moment(),
             calenderFocused: false,
             error: ''
         }
@@ -28,12 +29,12 @@ export default class TaskForm extends React.Component {
     }
     onAmountChange = (e) => {
         const amount = e.target.value
-        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
+        if (!amount || amount.match(/^[0-9]*$/)) {
             this.setState(() => ({ amount }))
         }
     }
-    onDateChange = (createdAt) => {
-        this.setState(() => ({ createdAt }))
+    onDateChange = (deadline) => {
+        this.setState(() => ({ deadline }))
     }
     onFocusChange = ({ focused }) => {
         this.setState(() => ({ calenderFocused: focused }))
@@ -41,8 +42,8 @@ export default class TaskForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault()
 
-        if (!this.state.description || !this.state.amount) {
-            this.setState(() => ({ error: 'Please provide a description and an amount.' }))
+        if (!this.state.description) {
+            this.setState(() => ({ error: 'Please provide a description.' }))
         } else if (!this.state.createdAt) {
             this.setState(() => ({ error: 'Please enter a valid date' }));
         } else {
@@ -50,8 +51,9 @@ export default class TaskForm extends React.Component {
             this.props.onSubmit({
                 description: this.state.description,
                 note: this.state.note,
-                amount: parseFloat(this.state.amount, 10) * 100,
+                amount: this.state.amount ? parseFloat(this.state.amount, 10) : 0,
                 createdAt: this.state.createdAt.valueOf(),
+                deadline: this.state.deadline ? this.state.deadline.valueOf() : 9999999999999
             })
         }
     }
@@ -60,9 +62,10 @@ export default class TaskForm extends React.Component {
             <form className="form" onSubmit={this.onSubmit}>
                 {this.state.error && <p className="form__error" >{this.state.error}</p>}
                 <input className="text-input" type="text" placeholder="Description" autoFocus value={this.state.description} onChange={this.onDescriptionChange} />
-                <input className="text-input" type="text" placeholder="Amount" value={this.state.amount} onChange={this.onAmountChange} />
+                <input className="text-input" type="text" placeholder="Approx. Hours" value={this.state.amount} onChange={this.onAmountChange} />
+                <p>Deadline:</p>
                 <SingleDatePicker
-                    date={this.state.createdAt} 
+                    date={this.state.deadline} 
                     onDateChange={this.onDateChange} 
                     focused={this.state.calenderFocused} 
                     onFocusChange={this.onFocusChange}

@@ -11,8 +11,8 @@ export const addTask = (task) => ({
 export const startAddTask = (taskData = {}) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid
-        const { description = '', note = '', amount = 0, createdAt = 0 } = taskData
-        const task = { description, note, amount, createdAt }
+        const { description = '', note = '', amount = 0, createdAt = 0, deadline = 0 } = taskData
+        const task = { description, note, amount, createdAt, deadline }
 
         database.ref(`users/${uid}/tasks`).push(task).then((ref) => {
             dispatch(addTask({
