@@ -36,6 +36,11 @@
     }
 }
 
+.list-item__center {
+    color: $gray;
+    margin-left: -110px;
+}
+
 .list-item--message {
     align-items: center;
     color: $gray;
@@ -53,7 +58,7 @@
 
 .list-item__subtitle {
     color: $gray;
-    font-size: $font-size-medium;
+    font-size: $font-size-small;
 }
 
 .list-item__data {

@@ -9,6 +9,7 @@ const TaskList = (props) => (
         <div className="list-header">
             <div className="show-for-mobile">Tasks</div>
             <div className="show-for-desktop">Task</div>
+            <div className="show-for-desktop">Deadline</div>
             <div className="show-for-desktop">Hours</div>
         </div>
         <div className="list-body">
