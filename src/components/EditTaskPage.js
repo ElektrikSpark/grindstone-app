@@ -25,7 +25,7 @@ export class EditTaskPage extends React.Component {
                         task={this.props.task}
                         onSubmit={this.onSubmit}
                     />
-                    <button className="button button--secondary" onClick={this.onRemove}>Demolish Task</button>
+                    <button className="button button--secondary button--form button--margin" onClick={this.onRemove}>Demolish Task</button>
                 </div>
             </div>
         )

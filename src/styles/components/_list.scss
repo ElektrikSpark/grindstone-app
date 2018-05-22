@@ -37,7 +37,7 @@
 }
 
 .list-item__deadline {
-    color: coral;
+    color: $coral;
     margin: $m-size 0 0 0;
     
     @media (min-width: $desktop-breakpoint) {

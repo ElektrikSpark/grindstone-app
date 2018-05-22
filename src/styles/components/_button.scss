@@ -15,5 +15,13 @@
 }
 
 .button--secondary {
-    background-color: #888;
+    background-color: $coral;
+}
+
+.button--form {
+    width: 142px;
+}
+
+.button--margin {
+    margin-bottom: 2rem;
 }
