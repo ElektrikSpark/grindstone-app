@@ -9,6 +9,10 @@ class TaskListFilters extends React.Component {
     state = {
         calenderFocused: null
     }
+    componentDidMount() {
+        this.props.dispatch(setStartDate(null))
+        this.props.dispatch(setEndDate(null))
+    }
     onDatesChange = ({ startDate, endDate }) => {
         this.props.dispatch(setStartDate(startDate))
         this.props.dispatch(setEndDate(endDate))
