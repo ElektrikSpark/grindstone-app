@@ -13,7 +13,7 @@ export default class TaskForm extends React.Component {
             note: props.task ? props.task.note : '',
             amount: props.task ? (props.task.amount).toString() : '',
             createdAt: props.task ? moment(props.task.createdAt) : moment(),
-            deadline: props.task ? (props.task.deadline ? (props.task.deadline === 9999999999999 ? moment() : moment(props.task.deadline)) : moment()) : moment(),
+            deadline: props.task ? (props.task.deadline ? moment(props.task.deadline) : null) : null,
             calenderFocused: false,
             error: ''
         }
@@ -53,7 +53,7 @@ export default class TaskForm extends React.Component {
                 note: this.state.note,
                 amount: this.state.amount ? parseFloat(this.state.amount, 10) : 0,
                 createdAt: this.state.createdAt.valueOf(),
-                deadline: this.state.deadline ? this.state.deadline.valueOf() : 9999999999999
+                deadline: this.state.deadline ? this.state.deadline.valueOf() : null
             })
         }
     }
@@ -63,12 +63,12 @@ export default class TaskForm extends React.Component {
                 {this.state.error && <p className="form__error" >{this.state.error}</p>}
                 <input className="text-input" type="text" placeholder="Description*" autoFocus value={this.state.description} onChange={this.onDescriptionChange} />
                 <input className="text-input" type="text" placeholder="Approx. Hours" value={this.state.amount} onChange={this.onAmountChange} />
-                <p>Deadline:</p>
                 <SingleDatePicker
                     date={this.state.deadline} 
                     onDateChange={this.onDateChange} 
                     focused={this.state.calenderFocused} 
                     onFocusChange={this.onFocusChange}
+                    placeholder="Deadline"
                     showClearDate={true}
                     numberOfMonths={1}
                     isOutsideRange={() => false}
@@ -76,7 +76,7 @@ export default class TaskForm extends React.Component {
                 />
                 <textarea className="text-area" placeholder="Add a note for your task (optional)" value={this.state.note} onChange={this.onNoteChange} ></textarea>
                 <div>
-                    <button className="button">Save Task</button>
+                    <button className="button">Chisel Task</button>
                     <h5 className="form-footer">* = required field</h5>
                 </div>
             </form>

@@ -17,3 +17,12 @@
         margin: 0 $s-size 0 0;
     }
 }
+
+.input-group__date {
+    margin-bottom: $s-size;
+    margin-right: $s-size;
+
+    @media (min-width: $desktop-breakpoint) {
+        margin: 0 $s-size 0 4rem;
+    }
+}

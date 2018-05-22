@@ -40,7 +40,7 @@ class TaskListFilters extends React.Component {
                             <option value="amount">Hours</option>
                         </select>
                     </div>
-                    <div className="input-group__item">
+                    <div className="input-group__date">
                         <DateRangePicker 
                             startDate={this.props.filters.startDate}
                             startDateId="1"

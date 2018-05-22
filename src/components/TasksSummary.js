@@ -14,7 +14,7 @@ export const TasksSummary = ({ taskCount, tasksTotal }) => {
             <div className="content-container">
                 <h1 className="page-header__title">Viewing <span>{taskCount}</span> {taskWord} taking <span>{formattedTasksTotal}</span> {hourWord}</h1>
                 <div className="page-header__actions">
-                    <Link className="button" to="/create">Add Task</Link>
+                    <Link className="button" to="/create">Add to the Daily Grind</Link>
                 </div>
             </div>
         </div>
