@@ -10,14 +10,19 @@
 }
 
 .box-layout__box {
-    background: fade-out($color: white, $amount: .1);
+    background: linear-gradient(to right bottom, rgba(216, 149, 25, 0.8)), rgba(0, 162, 255, 0.8);
     border-radius: 3px;
     padding: $l-size $m-size;
     text-align: center;
-    width: 25rem;
+    width: 30rem;
 }
 
 .box-layout__title {
     margin: 0 0 $m-size 0;
     line-height: 1;
+    font-size: $xl-size;
+}
+
+.box-layout__subtitle {
+    font-size: 1.8rem;
 }
